@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,32 @@
   <link rel="shortcut icon" href="https://icons8.com/icon/vMkgItIdhG6L/calculator" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <title>GPA Calculator</title>
+  <style>
+
+    .header-image {
+      background-image: url('red-swirl-header.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="header-image">
+    <h1>Science Quiz</h1>
+  </div>
   <!-- Navigation bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">GPA Calculator</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -26,13 +46,13 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="math.html"> <i class="fa fa-calculator me-1" aria-hidden="true"></i>
-            Math</a>
+              Math</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="science.html"> <i class="fa fa-flask me-1" aria-hidden="true"></i> Science</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="language.html">  <i class="fa fa-language me-1" aria-hidden="true"></i>Language</a>
+            <a class="nav-link" href="language.html"> <i class="fa fa-language me-1" aria-hidden="true"></i>Language</a>
           </li>
         </ul>
       </div>
@@ -52,8 +72,8 @@
       <div class="row">
         <div class="col-md-6">
           <h5>Contact Us</h5>
-          <p>Email: info@example.com</p>
-          <p>Address: 123 Main Street, City, Country</p>
+          <p>Email: Tech.Wizards@ggmail.com</p>
+          <p>Address: 1337 Main, Astana City, Kazakhstan</p>
         </div>
         <div class="col-md-6">
           <h5>Quick Links</h5>
@@ -78,7 +98,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
       const questions = [
         {
           question: "Why pluto is no longer planet?",
@@ -95,49 +115,50 @@
           choices: ["force", "curvature of space-time", "electromagnetism", "quantum event"],
           correctAnswer: "curvature of space-time"
         }
-    
+
       ];
 
       let currentQuestion = 0;
       let score = 0;
 
       function displayQuestion() {
-              const question = questions[currentQuestion];
-              const choices = question.choices.map(choice => `<label><input type="radio" name="answer" value="${choice}"> ${choice}</label><br>`).join('');
+        const question = questions[currentQuestion];
+        const choices = question.choices.map(choice => `<label><input type="radio" name="answer" value="${choice}"> ${choice}</label><br>`).join('');
 
-              $("#quiz").html(`
+        $("#quiz").html(`
                 <p>${question.question}</p>
                 ${choices}
               `);
-            }
+      }
 
-            function checkAnswer() {
-              const userAnswer = $("input[name='answer']:checked").val();
+      function checkAnswer() {
+        const userAnswer = $("input[name='answer']:checked").val();
 
-              if (userAnswer === questions[currentQuestion].correctAnswer) {
-                score++;
-              }
+        if (userAnswer === questions[currentQuestion].correctAnswer) {
+          score++;
+        }
 
-              currentQuestion++;
+        currentQuestion++;
 
-              if (currentQuestion < questions.length) {
-                displayQuestion();
-              } else {
-                displayResults();
-              }
-            }
+        if (currentQuestion < questions.length) {
+          displayQuestion();
+        } else {
+          displayResults();
+        }
+      }
 
-            function displayResults() {
-             // $("#quiz-container").html("");
-              $("#results").html(`<h3>Your Score: ${score} out of ${questions.length}</h3>`);
-            }
+      function displayResults() {
+        // $("#quiz-container").html("");
+        $("#results").html(`<h3>Your Score: ${score} out of ${questions.length}</h3>`);
+      }
 
-            // Display the first question
-            displayQuestion();
+      // Display the first question
+      displayQuestion();
 
-            // Event listener for submitting answers
-            $("#submit").click(checkAnswer);
-          });
-        </script>
-      </body>
-      </html>
+      // Event listener for submitting answers
+      $("#submit").click(checkAnswer);
+    });
+  </script>
+</body>
+
+</html>
