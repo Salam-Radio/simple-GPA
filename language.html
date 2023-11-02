@@ -11,11 +11,28 @@
   <link rel="shortcut icon" href="https://icons8.com/icon/vMkgItIdhG6L/calculator" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <title>GPA Calculator</title>
+  <style>
+
+    .header-image {
+      background-image: url('red-swirl-header.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="header-image">
+    <h1>Language Quiz</h1>
+  </div>
   <!-- Navigation bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">GPA Calculator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -55,8 +72,8 @@
       <div class="row">
         <div class="col-md-6">
           <h5>Contact Us</h5>
-          <p>Email: info@example.com</p>
-          <p>Address: 123 Main Street, City, Country</p>
+          <p>Email: Tech.Wizards@ggmail.com</p>
+          <p>Address: 1337 Main, Astana City, Kazakhstan</p>
         </div>
         <div class="col-md-6">
           <h5>Quick Links</h5>
@@ -109,9 +126,9 @@
         const choices = question.choices.map(choice => `<label><input type="radio" name="answer" value="${choice}"> ${choice}</label><br>`).join('');
 
         $("#quiz").html(`
-          <p>${question.question}</p>
-          ${choices}
-        `);
+                <p>${question.question}</p>
+                ${choices}
+              `);
       }
 
       function checkAnswer() {
