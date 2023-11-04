@@ -90,7 +90,9 @@
   </div>
 
   <div class="d-flex justify-content-end p-3">
-    <button class="btn btn-light" onclick="toggleLanguage()">En/Rus</button>
+    <button class="btn btn-light" onclick="toggleLanguage()"> 
+      <i class="flag-icon fas fa-globe"></i> Ru/En
+      </button>
   </div>
 
   <!-- Navigation bar -->
@@ -176,9 +178,9 @@
     <table class="custom-table">
       <thead>
         <tr>
-          <th>Math</th>
-          <th>Science</th>
-          <th>Language</th>
+          <th id="mathHeader">Math</th>
+          <th id="scienceHeader">Science</th>
+          <th id="languageHeader">Language</th>
         </tr>
       </thead>
       <tbody>
@@ -313,10 +315,13 @@
         "F = 0 grade points",
         "P (pass), NP (not pass), I (incomplete), W (withdrawal) will be ignored."
       ];
-      for (let i = 0; i < listItems.length; i++) {
+      for (let i = 0; i < listItems.length-1; i++) {
         listItems[i].innerText = translations[i];
       }
-      document.getElementById('inputExamples').innerText = 'Input Examples'
+      document.getElementById('inputExamples').innerText = 'Input Examples';
+      document.getElementById("mathHeader").innerText = "Math";
+      document.getElementById("scienceHeader").innerText = "Science";
+      document.getElementById("languageHeader").innerText = "Language";
       //Bottom translation
       document.getElementById("headerDontGiveUp").innerText = "Don't give up if your GPA is low!";
       document.getElementById("paragraphInspire").innerText = "Colleges, even the most prestigious ones, look at many factors including the trend of GPA. If you can raise it as fast as possible, they will appreciate it. And even considering that, they still accept people with lower GPA. You can explain the reason in your essay and make yourself stand out! Look at the stats in this carousel, for example...";
@@ -376,10 +381,13 @@
         "F = 0 баллов",
         "P (зачет), NP (не зачет), I (незавершен), W (отказ) будут проигнорированы."
       ];
-      for (let i = 0; i < listItems.length; i++) {
+      for (let i = 0; i < listItems.length-1; i++) {
         listItems[i].innerText = translations[i];
       }
-      document.getElementById('inputExamples').innerText = 'Примеры ввода'
+      document.getElementById('inputExamples').innerText = 'Примеры ввода';
+      document.getElementById("mathHeader").innerText = "Математика";
+      document.getElementById("scienceHeader").innerText = "Наука";
+      document.getElementById("languageHeader").innerText = "Язык";
       // Bottom Translate
 
       document.getElementById("headerDontGiveUp").innerText = "Не сдавайся, если твой средний балл низок!";
