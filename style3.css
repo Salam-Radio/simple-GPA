@@ -1,0 +1,75 @@
+.html {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.body {
+  padding-top: 5rem;
+  background-color: #f8f9fa;
+  padding-bottom: 4rem;
+}
+
+.navbar {
+  background-color: #666666;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.1);
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f8f9fa;
+}
+
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
+.card {
+  margin: 20px 0;
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #999999;
+}
+
+.form-label {
+  color: #495057;
+}
+
+.btn-primary {
+  background-color: #AAAAAA;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #666666;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40; /* Dark background color */
+  padding: 1rem;
+  text-align: center;
+  color: #fff; /* Light text color */
+}
