@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <title>GPA Calculator</title>
   <style>
-    
     .header-image {
       background-image: url('blue-swirl-header.jpg');
       background-size: cover;
@@ -86,31 +85,39 @@
 </head>
 
 <body>
-  <div class="header-image">
+  <div id="headerTitle" class="header-image">
     <h1>GPA Calculator</h1>
   </div>
+
+  <div class="d-flex justify-content-end p-3">
+    <button class="btn btn-light" onclick="toggleLanguage()">En/Rus</button>
+  </div>
+
   <!-- Navigation bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" id="mainNavbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">GPA Calculator</a>
+      <a class="navbar-brand" href="index.html" id="navbarBrand">GPA Calculator</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <div class="collapse navbar-collapse" id="navbarNav" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto" id="navbarList">
           <li class="nav-item">
-            <a class="nav-link" href="index.html"> <i class="fa fa-home me-1" aria-hidden="true"></i>Home</a>
+            <a class="nav-link" href="index.html"> <i class="fa fa-home me-1" aria-hidden="true"></i><span
+                id="homeLink">Home</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="math.html"> <i class="fa fa-calculator me-1" aria-hidden="true"></i>
-              Math</a>
+            <a class="nav-link" href="math.html"> <i class="fa fa-calculator me-1" aria-hidden="true"></i><span
+                id="mathLink">Math</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="science.html"> <i class="fa fa-flask me-1" aria-hidden="true"></i> Science</a>
+            <a class="nav-link" href="science.html"> <i class="fa fa-flask me-1" aria-hidden="true"></i><span
+                id="scienceLink">Science</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="language.html"> <i class="fa fa-language me-1" aria-hidden="true"></i>Language</a>
+            <a class="nav-link" href="language.html"> <i class="fa fa-language me-1" aria-hidden="true"></i><span
+                id="languageLink">Language</span></a>
           </li>
         </ul>
       </div>
@@ -121,27 +128,28 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <h2 class="card-title">GPA Calculator</h2>
+        <h2 id="cardTitle" class="card-title">GPA Calculator</h2>
         <form id="gpaForm">
           <div class="mb-3">
-            <label for="mathScore" class="form-label">Math Score:</label>
+            <label id="mathScoreLabel" for="mathScore" class="form-label">Math Score:</label>
             <input type="text" class="form-control" id="mathScore" required>
           </div>
           <div class="mb-3">
-            <label for="scienceScore" class="form-label">Science Score:</label>
+            <label id="scienceScoreLabel" for="scienceScore" class="form-label">Science Score:</label>
             <input type="text" class="form-control" id="scienceScore" required>
           </div>
           <div class="mb-3">
-            <label for="languageScore" class="form-label">Language Score:</label>
+            <label id="languageScoreLabel" for="languageScore" class="form-label">Language Score:</label>
             <input type="text" class="form-control" id="languageScore" required>
           </div>
-          <button type="button" class="btn btn-primary" onclick="calculateGPA()">Calculate GPA</button>
+          <button id="calculateButton" type="button" class="btn btn-primary" onclick="calculateGPA()">Calculate
+            GPA</button>
         </form>
         <div id="result" class="mt-3"></div>
       </div>
     </div>
   </div>
-  <div class="custom-container">
+  <div id="gradeTranslation" class="custom-container">
     <div class="container-header">Letter grade and the numerical equivalents</div>
     <p class="container-paragraph">Grade point average (GPA) is the average of the grades attained in each course,
       taking course credit into consideration. Grading systems vary in different countries, or even schools. This
@@ -164,7 +172,7 @@
       <li>P (pass), NP (not pass), I (incomplete), W (withdrawal) will be ignored.</li>
       <li> </li>
     </ul>
-    <div class="container-header">Input Examples</div>
+    <div id="inputExamples" class="container-header">Input Examples</div>
     <table class="custom-table">
       <thead>
         <tr>
@@ -188,8 +196,9 @@
     </table>
   </div>
   <div class="custom-container">
-    <div class="container-header">Don't give up if your GPA is low!</div>
-    <p class="container-paragraph">Colleges, even the most prestige one, look at many factors including the trend of
+    <div id="headerDontGiveUp" class="container-header">Don't give up if your GPA is low!</div>
+    <p id="paragraphInspire" class="container-paragraph">Colleges, even the most prestige one, look at many factors
+      including the trend of
       gpa, if you can rise it as fast as possible, they will appreciate it. And even considering that, they still accept
       people with lower gpa, as you can explain the reason in your essay and make yourself present outstanding! Look at
       the stat in this caroosel for example...</p>
@@ -217,21 +226,21 @@
     </button>
   </div>
 
-  <footer class="bg-dark text-light py-4">
+  <footer id="footer" class="bg-dark text-light py-4">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h5>Contact Us</h5>
-          <p>Email: Tech.Wizards@ggmail.com</p>
-          <p>Address: 1337 Main Street, Astana City, Kazakhstan</p>
+          <p id="email">Email: Tech.Wizards@ggmail.com</p>
+          <p id="address">Address: 1337 Main Street, Astana City, Kazakhstan</p>
         </div>
         <div class="col-md-6">
           <h5>Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="math.html">Math</a></li>
-            <li><a href="science.html">Science</a></li>
-            <li><a href="language.html">Language</a></li>
+            <li><a href="index.html" id="homeLink">Home</a></li>
+            <li><a href="math.html" id="mathLink">Math</a></li>
+            <li><a href="science.html" id="scienceLink">Science</a></li>
+            <li><a href="language.html" id="languageLink">Language</a></li>
           </ul>
         </div>
       </div>
@@ -239,7 +248,7 @@
         <div class="col-md-12">
           <p>&copy; 2023 GPA Calculator. All rights reserved.</p>
           <p>Icons by <a href="https://icons8.com">Icons8</a></p>
-          <p>Licensed under <a href="#">MIT License</a></p>
+          <p>Licensed under <a href="#" id="licenseLink">MIT License</a></p>
         </div>
       </div>
     </div>
@@ -247,7 +256,146 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Language toggle function
+    function toggleLanguage() {
+      const currentLanguage = document.documentElement.lang;
 
+      // Toggle between English and Russian
+      if (currentLanguage === 'en') {
+        setRussian();
+      } else {
+        setEnglish();
+      }
+    }
+
+    // Set the website to English
+    function setEnglish() {
+      document.documentElement.lang = 'en';
+
+      const headerTitle = document.getElementById('headerTitle'); headerTitle.querySelector('h1').innerText = 'GPA Calculator';
+
+      //NavBar Translation
+      document.getElementById('navbarBrand').innerText = 'GPA Calculator';
+      document.getElementById('homeLink').innerText = 'Home';
+      document.getElementById('mathLink').innerText = 'Math';
+      document.getElementById('scienceLink').innerText = 'Science';
+      document.getElementById('languageLink').innerText = 'Language';
+
+      //Main Body Translation
+      document.getElementById('cardTitle').innerText = 'GPA Calculator';
+
+      document.getElementById('mathScoreLabel').innerText = 'Math Score:';
+      document.getElementById('scienceScoreLabel').innerText = 'Science Score:';
+      document.getElementById('languageScoreLabel').innerText = 'Language Score:';
+      document.getElementById('calculateButton').innerText = 'Calculate GPA'
+      document.getElementById('mathScore').placeholder = 'Enter your math score';
+      document.getElementById('scienceScore').placeholder = 'Enter your science score';
+      document.getElementById('languageScore').placeholder = 'Enter your language score';
+
+      const gradeTranslation = document.getElementById('gradeTranslation');
+      gradeTranslation.querySelector('.container-header').innerText = 'Letter grade and the numerical equivalents';
+      gradeTranslation.querySelector('.container-paragraph').innerText = 'Grade point average (GPA) is the average of the grades attained in each course, taking course credit into consideration. Grading systems vary in different countries, or even schools. This calculator ACCEPTS LETTER GRADES, numerical inputs. These letter grades are translated into numerical values as shown below.';
+      const listItems = gradeTranslation.querySelectorAll('.custom-list li');
+      const translations = [
+        "A+ = 4.3 grade points",
+        "A = 4 grade points",
+        "A- = 3.7 grade points",
+        "B+ = 3.3 grade points",
+        "B = 3 grade points",
+        "B- = 2.7 grade points",
+        "C+ = 2.3 grade points",
+        "C = 2 grade points",
+        "C- = 1.7 grade points",
+        "D+ = 1.3 grade points",
+        "D = 1 grade point",
+        "D- = 0.7 grade points",
+        "F = 0 grade points",
+        "P (pass), NP (not pass), I (incomplete), W (withdrawal) will be ignored."
+      ];
+      for (let i = 0; i < listItems.length; i++) {
+        listItems[i].innerText = translations[i];
+      }
+      document.getElementById('inputExamples').innerText = 'Input Examples'
+      //Bottom translation
+      document.getElementById("headerDontGiveUp").innerText = "Don't give up if your GPA is low!";
+      document.getElementById("paragraphInspire").innerText = "Colleges, even the most prestigious ones, look at many factors including the trend of GPA. If you can raise it as fast as possible, they will appreciate it. And even considering that, they still accept people with lower GPA. You can explain the reason in your essay and make yourself stand out! Look at the stats in this carousel, for example...";
+
+      //footer
+      document.getElementById("email").innerText = "Email: Tech.Wizards@gmail.com";
+      document.getElementById("address").innerText = "Address: 1337 Main Street, Astana City, Kazakhstan";
+      document.getElementById("homeLink").innerText = "Home";
+      document.getElementById("mathLink").innerText = "Math";
+      document.getElementById("scienceLink").innerText = "Science";
+      document.getElementById("languageLink").innerText = "Language";
+      document.getElementById("licenseLink").innerText = "Licensed under MIT License";
+
+    }
+
+    // Set the website to Russian
+    function setRussian() {
+      document.documentElement.lang = 'ru';
+
+      const headerTitle = document.getElementById('headerTitle'); headerTitle.querySelector('h1').innerText = 'Калькулятор GPA';
+
+      // NavBar Translation
+      document.getElementById('navbarBrand').innerText = 'Калькулятор GPA';
+      document.getElementById('homeLink').innerText = 'Главная';
+      document.getElementById('mathLink').innerText = 'Математика';
+      document.getElementById('scienceLink').innerText = 'Наука';
+      document.getElementById('languageLink').innerText = 'Язык';
+
+      // Main Body Translation   
+      document.getElementById('cardTitle').innerText = 'Калькулятор GPA';
+
+      document.getElementById('mathScoreLabel').innerText = 'Оценка по математике:';
+      document.getElementById('scienceScoreLabel').innerText = 'Оценка по науке:';
+      document.getElementById('languageScoreLabel').innerText = 'Оценка по языку:';
+      document.getElementById('calculateButton').innerText = 'Рассчитать средний балл';
+      document.getElementById('mathScore').placeholder = 'Введите свой балл по математике';
+      document.getElementById('scienceScore').placeholder = 'Введите свой балл по науке';
+      document.getElementById('languageScore').placeholder = 'Введите свой балл по языку';
+
+      const gradeTranslation = document.getElementById('gradeTranslation');
+      gradeTranslation.querySelector('.container-header').innerText = 'Буквенные оценки и их числовые эквиваленты';
+      gradeTranslation.querySelector('.container-paragraph').innerText = 'Средний балл (GPA) - это средний балл за все курсы, учитывая зачет кредитов. Системы оценок различаются в разных странах или даже школах. Этот калькулятор ПРИНИМАЕТ БУКВЕННЫЕ ОЦЕНКИ и числовые вводы. Эти буквенные оценки переводятся в числовые значения, как показано ниже.';
+      const listItems = gradeTranslation.querySelectorAll('.custom-list li');
+      const translations = [
+        "A+ = 4.3 балла",
+        "A = 4 балла",
+        "A- = 3.7 балла",
+        "B+ = 3.3 балла",
+        "B = 3 балла",
+        "B- = 2.7 балла",
+        "C+ = 2.3 балла",
+        "C = 2 балла",
+        "C- = 1.7 балла",
+        "D+ = 1.3 балла",
+        "D = 1 балл",
+        "D- = 0.7 балла",
+        "F = 0 баллов",
+        "P (зачет), NP (не зачет), I (незавершен), W (отказ) будут проигнорированы."
+      ];
+      for (let i = 0; i < listItems.length; i++) {
+        listItems[i].innerText = translations[i];
+      }
+      document.getElementById('inputExamples').innerText = 'Примеры ввода'
+      // Bottom Translate
+
+      document.getElementById("headerDontGiveUp").innerText = "Не сдавайся, если твой средний балл низок!";
+      document.getElementById("paragraphInspire").innerText = "Многие вузы, даже самые престижные, рассматривают множество факторов, включая динамику среднего балла. Если ты сможешь повысить его как можно быстрее, они это оценят. И даже с учетом этого, они все равно принимают людей с низким средним баллом. Ты можешь объяснить причину в своем эссе, главное выделиться! Посмотри на статистику в этой каруселе, например...";
+
+      //footer
+      document.getElementById("email").innerText = "почта: Tech.Wizards@gmail.com";
+      document.getElementById("address").innerText = "Адрес: ул. Мира, 1337, г. Астана, Казахстан";
+      document.getElementById("homeLink").innerText = "Главная";
+      document.getElementById("mathLink").innerText = "Математика";
+      document.getElementById("scienceLink").innerText = "Наука";
+      document.getElementById("languageLink").innerText = "Язык";
+      document.getElementById("licenseLink").innerText = "Лицензия MIT";
+    }
+
+  </script>
 </body>
 
 </html>
